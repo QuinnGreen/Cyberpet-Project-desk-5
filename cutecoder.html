@@ -8,13 +8,17 @@
 </head>
 <body>
   <h1>Cyberpet project</h1>
-
+  <p>Name =<span id="name"></span></p>
+  <p>Hunger =<span id="hunger"></span></p>
+  <p>Thirst =<span id="thirst"></span></p>
+  <p>Code Progress =<span id="code Progress"></span></p>
+  <p>Squish =<span id="squish"></span></p>
 <div>
-    <button onclick="const newPet = new CutesyCoder(100,100,0,0)">New Pet</button>
+    <button onclick="petNew()">New Pet</button>
     <button onclick="newPet.eats()">Eat</button>
     <button onclick="newPet.drinks()">Drink</button>
     <button onclick="newPet.codes()">Code</button>
-    <button onclick="">individual stat</button>
+    <button onclick="newPet.cuddlestuffie()">Squish</button>
     <button onclick="newPet.reset()">reset</button>
     
 </div>

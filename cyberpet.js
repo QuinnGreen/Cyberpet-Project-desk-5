@@ -31,8 +31,12 @@ class Cyberpet {
     codes() {
         this.codingProgress += Math.floor((Math.random() * 10) + 1);
         console.log(`Clickety Clack, your project is now ${this.codingProgress}% done`)
+        if (this.codingProgress > 100) {
+            this.codingProgress = 100 
+        }
         this.hunger -= 5
         this.thirst -= 5
+        isAlive()
     }
     
 }
@@ -45,6 +49,7 @@ class CutesyCoder extends Cyberpet {
     cuddlestuffie(){
         console.log("So soft")
         this.squish += 50
+        isAlive()
     }
     reset() {
         this.hunger = 100
@@ -59,19 +64,35 @@ const isAlive = () => {
         if(this.thirst <= 0){
             console.log("died of thirst")
             itDied()
-        } else if(this.hunger <= 0){
+        } 
+        else if(this.hunger <= 0){
             console.log("died of thirst")
+            itDied()
+        } 
+        else if(this.squish <= 0){
+            console.log("died of lack of Squish")
             itDied()
         } 
 }
 
 const itDied = () => {}
 
-const newPet = new CutesyCoder(100,100,0,0)
+const petNew = () => {
+    const newPet = new CutesyCoder("Dave",100,100,0,0)
+}
 
-newPet.eats()
-newPet.drinks()
-newPet.codes()
-newPet.codes()
-newPet.cuddlestuffie()
-newPet.reset()
+
+document.getElementById
+
+document.getElementById("hunger").textContent = this.hunger
+
+
+
+const newPet = new CutesyCoder("Dave",100,100,0,0)
+
+// newPet.eats()
+// newPet.drinks()
+// newPet.codes()
+// newPet.codes()
+// newPet.cuddlestuffie()
+// newPet.reset()
