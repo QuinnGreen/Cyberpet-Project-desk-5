@@ -31,13 +31,17 @@ class Cyberpet {
         }
 
         // Update the hunger display in your UI
-        document.getElementById("hunger").textContent = this.hunger;
-        document.getElementById("thirst").textContent = this.thirst;
-        document.getElementById("squish").textContent = this.squish
+        this.updateStats()
         // Check if the pet is still alive
         this.isAlive();
     }
     
+    updateStats(){
+        document.getElementById("hunger").textContent = this.hunger
+        document.getElementById("thirst").textContent = this.thirst
+        document.getElementById("codeprogress").textContent = this.codingProgress
+        document.getElementById("squish").textContent = this.squish
+    }
     isAlive() {
     if(this.thirst <= 0){
         console.log("died of thirst")
@@ -69,10 +73,7 @@ class Cyberpet {
         if (this.thirst < 0) {
             this.thirst = 0 
         }
-        document.getElementById("hunger").textContent = this.hunger
-        document.getElementById("thirst").textContent = this.thirst
-        document.getElementById("codeprogress").textContent = this.codingProgress
-        document.getElementById("squish").textContent = this.squish
+        this.updateStats()
 
         this.isAlive()
 
@@ -88,10 +89,7 @@ class Cyberpet {
         if (this.hunger < 0) {
             this.hunger = 0 
         }
-        document.getElementById("hunger").textContent = this.hunger
-        document.getElementById("thirst").textContent = this.thirst
-        document.getElementById("codeprogress").textContent = this.codingProgress
-        document.getElementById("squish").textContent = this.squish
+        this.updateStats()
 
         this.isAlive()
     }
@@ -110,10 +108,7 @@ class Cyberpet {
         if (this.hunger < 0) {
             this.hunger = 0 
         }
-        document.getElementById("hunger").textContent = this.hunger
-        document.getElementById("thirst").textContent = this.thirst
-        document.getElementById("codeprogress").textContent = this.codingProgress
-        document.getElementById("squish").textContent = this.squish
+        this.updateStats()
         this.isAlive()
     }
     
@@ -130,10 +125,7 @@ class CutesyCoder extends Cyberpet {
         if (this.squish > 100) {
             this.squish = 100 
         }
-        document.getElementById("hunger").textContent = this.hunger
-        document.getElementById("thirst").textContent = this.thirst
-        document.getElementById("codeprogress").textContent = this.codingProgress
-        document.getElementById("squish").textContent = this.squish
+        this.updateStats()
 
         this.isAlive()
     }
@@ -141,21 +133,18 @@ class CutesyCoder extends Cyberpet {
         this.hunger = 100
         this.thirst = 100
         this.codingProgress = 0
-        this.squish = 0
-        document.getElementById("hunger").textContent = this.hunger
-        document.getElementById("thirst").textContent = this.thirst
-        document.getElementById("codeprogress").textContent = this.codingProgress
-        document.getElementById("squish").textContent = this.squish
+        this.squish = 100
+        this.updateStats()
     }
 
 }
-const newPet = new CutesyCoder("Dave",100,100,0,50)
+const newPet = new CutesyCoder("Dave",100,100,0,100)
 
 
 
 
 const petNew = () => {
-    const newPet = new CutesyCoder("Dave",100,100,0,50)
+    const newPet = new CutesyCoder("Dave",100,100,0,100)
 }
 
 
