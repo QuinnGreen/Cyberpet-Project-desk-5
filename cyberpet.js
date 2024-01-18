@@ -13,35 +13,37 @@ class Cyberpet {
         }, 1000); // Adjust the interval as needed (e.g., every 1000 milliseconds)
     }
     //methods
-
+    
     decreaseStatsOverTime() {
-        // Adjust the value by which hunger decreases over time
+        // Adjust the value by which stats decreases over time
         const decreaseAmountH = 2;
         const decreaseAmountT = 5;
         const decreaseAmountS = 1;
 
-        // Decrease hunger
+        // Decrease stats
         this.hunger -= decreaseAmountH;
         this.thirst -= decreaseAmountT;
         this.squish -= decreaseAmountS;
 
         // Ensure hunger doesn't go below 0
-        if (this.hunger < 0) {
-            this.hunger = 0;
-        }
+        // if (this.hunger < 0) {
+        //     this.hunger = 0;
+        // }
 
-        // Update the hunger display in your UI
+        // Update the  UI
         this.updateStats()
-        // Check if the pet is still alive
+       
         this.isAlive();
     }
     
     updateStats(){
+        
         document.getElementById("hunger").textContent = this.hunger
         document.getElementById("thirst").textContent = this.thirst
         document.getElementById("codeprogress").textContent = this.codingProgress
         document.getElementById("squish").textContent = this.squish
     }
+
     isAlive() {
     if(this.thirst <= 0){
         console.log("died of thirst")
@@ -112,6 +114,13 @@ class Cyberpet {
         this.isAlive()
     }
     
+    reset() {
+        this.hunger = 100
+        this.thirst = 100
+        this.codingProgress = 0
+        this.squish = 100
+        this.updateStats()
+    }
 }
 
 class CutesyCoder extends Cyberpet {
@@ -129,23 +138,21 @@ class CutesyCoder extends Cyberpet {
 
         this.isAlive()
     }
-    reset() {
-        this.hunger = 100
-        this.thirst = 100
-        this.codingProgress = 0
-        this.squish = 100
-        this.updateStats()
-    }
-
 }
-const newPet = new CutesyCoder("Dave",100,100,0,100)
 
-
-
-
-const petNew = () => {
-    const newPet = new CutesyCoder("Dave",100,100,0,100)
+createNewPet = () => {
+    const nameInput = document.getElementById("nameInput").value;
+    document.getElementById("name").textContent = nameInput;
+    newPet = new CutesyCoder(nameInput, 100, 100, 0, 100);
+    newPet.updateStats();
+    document.getElementById("name").textContent = nameInput
 }
+// const newPet = new CutesyCoder(nameInput,100,100,0,100)
+
+
+
+
+
 
 
 

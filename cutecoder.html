@@ -8,13 +8,14 @@
 </head>
 <body>
   <h1>Cyberpet project</h1>
-  <p>Name =<span id="name"></span></p>
-  <p>Hunger =<span id="hunger"></span></p>
-  <p>Thirst =<span id="thirst"></span></p>
-  <p>Code Progress =<span id="codeprogress"></span></p>
-  <p>Squish =<span id="squish"></span></p>
+  <p>Name = <span id="name"></span></p>
+  <p>Hunger = <span id="hunger"></span></p>
+  <p>Thirst = <span id="thirst"></span></p>
+  <p>Code Progress = <span id="codeprogress"></span></p>
+  <p>Squish = <span id="squish"></span></p>
 <div>
-    <button onclick="petNew()">New Pet</button>
+    <button onclick="createNewPet()">New Pet</button>
+    <input type="text" id="nameInput" placeholder="Enter name here">
     <button onclick="newPet.eats()">Eat</button>
     <button onclick="newPet.drinks()">Drink</button>
     <button onclick="newPet.codes()">Code</button>
