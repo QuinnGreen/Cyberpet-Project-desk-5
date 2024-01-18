@@ -5,8 +5,38 @@ class Cyberpet {
         this.hunger = hunger, //hunger stat
         this.thirst = thirst,
         this.codingProgress = codingProgress
+
+        // Set up a timer to decrease hunger over time
+        setInterval(() => {
+            this.decreaseStatsOverTime();
+            
+        }, 1000); // Adjust the interval as needed (e.g., every 1000 milliseconds)
     }
     //methods
+
+    decreaseStatsOverTime() {
+        // Adjust the value by which hunger decreases over time
+        const decreaseAmountH = 2;
+        const decreaseAmountT = 5;
+        const decreaseAmountS = 1;
+
+        // Decrease hunger
+        this.hunger -= decreaseAmountH;
+        this.thirst -= decreaseAmountT;
+        this.squish -= decreaseAmountS;
+
+        // Ensure hunger doesn't go below 0
+        if (this.hunger < 0) {
+            this.hunger = 0;
+        }
+
+        // Update the hunger display in your UI
+        document.getElementById("hunger").textContent = this.hunger;
+        document.getElementById("thirst").textContent = this.thirst;
+        document.getElementById("squish").textContent = this.squish
+        // Check if the pet is still alive
+        this.isAlive();
+    }
     
     isAlive() {
     if(this.thirst <= 0){
@@ -119,13 +149,13 @@ class CutesyCoder extends Cyberpet {
     }
 
 }
-const newPet = new CutesyCoder("Dave",100,100,0,0)
+const newPet = new CutesyCoder("Dave",100,100,0,50)
 
 
 
 
 const petNew = () => {
-    const newPet = new CutesyCoder("Dave",100,100,0,0)
+    const newPet = new CutesyCoder("Dave",100,100,0,50)
 }
 
 
