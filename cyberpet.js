@@ -7,6 +7,28 @@ class Cyberpet {
         this.codingProgress = codingProgress
     }
     //methods
+    
+    isAlive() {
+    if(this.thirst <= 0){
+        console.log("died of thirst")
+        this.itDied()
+    } 
+    else if(this.hunger <= 0){
+        console.log("died of thirst")
+        this.itDied()
+    } 
+    else if(this.squish <= 0){
+        console.log("died of lack of Squish")
+        this.itDied()
+        } 
+    }
+
+    itDied() {
+        document.getElementById("hunger").textContent = "You Died"
+        document.getElementById("thirst").textContent = "You Died"
+        document.getElementById("codeprogress").textContent = "You Died"
+        document.getElementById("squish").textContent = "You Died"
+    }
     eats() {
         this.hunger += 10
         this.thirst -= 5
@@ -14,7 +36,15 @@ class Cyberpet {
         if (this.hunger > 100) {
             this.hunger = 100 
         }
-        isAlive()
+        if (this.thirst < 0) {
+            this.thirst = 0 
+        }
+        document.getElementById("hunger").textContent = this.hunger
+        document.getElementById("thirst").textContent = this.thirst
+        document.getElementById("codeprogress").textContent = this.codingProgress
+        document.getElementById("squish").textContent = this.squish
+
+        this.isAlive()
 
     }
 
@@ -25,7 +55,15 @@ class Cyberpet {
         if (this.thirst > 100) {
             this.thirst = 100 
         }
-        isAlive()
+        if (this.hunger < 0) {
+            this.hunger = 0 
+        }
+        document.getElementById("hunger").textContent = this.hunger
+        document.getElementById("thirst").textContent = this.thirst
+        document.getElementById("codeprogress").textContent = this.codingProgress
+        document.getElementById("squish").textContent = this.squish
+
+        this.isAlive()
     }
 
     codes() {
@@ -36,7 +74,17 @@ class Cyberpet {
         }
         this.hunger -= 5
         this.thirst -= 5
-        isAlive()
+        if (this.thirst < 0) {
+            this.thirst = 0 
+        }
+        if (this.hunger < 0) {
+            this.hunger = 0 
+        }
+        document.getElementById("hunger").textContent = this.hunger
+        document.getElementById("thirst").textContent = this.thirst
+        document.getElementById("codeprogress").textContent = this.codingProgress
+        document.getElementById("squish").textContent = this.squish
+        this.isAlive()
     }
     
 }
@@ -49,46 +97,44 @@ class CutesyCoder extends Cyberpet {
     cuddlestuffie(){
         console.log("So soft")
         this.squish += 50
-        isAlive()
+        if (this.squish > 100) {
+            this.squish = 100 
+        }
+        document.getElementById("hunger").textContent = this.hunger
+        document.getElementById("thirst").textContent = this.thirst
+        document.getElementById("codeprogress").textContent = this.codingProgress
+        document.getElementById("squish").textContent = this.squish
+
+        this.isAlive()
     }
     reset() {
         this.hunger = 100
         this.thirst = 100
         this.codingProgress = 0
         this.squish = 0
+        document.getElementById("hunger").textContent = this.hunger
+        document.getElementById("thirst").textContent = this.thirst
+        document.getElementById("codeprogress").textContent = this.codingProgress
+        document.getElementById("squish").textContent = this.squish
     }
 
 }
+const newPet = new CutesyCoder("Dave",100,100,0,0)
 
-const isAlive = () => {
-        if(this.thirst <= 0){
-            console.log("died of thirst")
-            itDied()
-        } 
-        else if(this.hunger <= 0){
-            console.log("died of thirst")
-            itDied()
-        } 
-        else if(this.squish <= 0){
-            console.log("died of lack of Squish")
-            itDied()
-        } 
-}
 
-const itDied = () => {}
+
 
 const petNew = () => {
     const newPet = new CutesyCoder("Dave",100,100,0,0)
 }
 
 
-document.getElementById
-
-document.getElementById("hunger").textContent = this.hunger
 
 
+// document.getElementById("hunger").textContent = this.hunger
 
-const newPet = new CutesyCoder("Dave",100,100,0,0)
+
+
 
 // newPet.eats()
 // newPet.drinks()
