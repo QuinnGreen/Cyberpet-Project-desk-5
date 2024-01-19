@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+.concert-one-regular {
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+.lrgT {
+    font-size: 28px;
+}
+
+.smllT {
+    font-size: 14px;
+}
+
+.fill {
+    filter: invert(100%) sepia(0%) saturate(4767%) hue-rotate(142deg) brightness(126%) contrast(110%);
+}
+
+.pets { 
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+#petContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 60px;
+    width: 2000px;
+    height: fit-content;
+}
+
+#bgCover {
+    position: absolute;
+    background-color: darkseagreen;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+}
+
+.petImageCont {
+    position: relative;
+    top: 30px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+#infoCont {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.436);
+    height: 170px;
+    width: 150px;
+    top: 65px;
+    left: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.127);
+    border-radius: 5px;
+}
+
+#options {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.436);
+    height: 170px;
+    width: 150px;
+    top: -105px;
+    left: 180px;
+    padding-top: 8px;
+    padding-left: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.127);
+    border-radius: 5px;
+}
+
+.iconCont {
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+}
+
+#drinkProg {
+    background-color: rgb(120, 120, 120);
+    width: 100px;
+    height: 5px;
+    position: relative;
+    top: -20px;
+    left: 30px;
+}
+
+#eatProg {
+    background-color: rgb(120, 120, 120);
+    width: 100px;
+    height: 5px;
+    position: relative;
+    top: -20px;
+    left: 30px;
+}
+
+#codeProg {
+    background-color: rgb(120, 120, 120);
+    width: 100px;
+    height: 5px;
+    position: relative;
+    top: -20px;
+    left: 30px;
+}
+
+#cuddleProg {
+    background-color: rgb(120, 120, 120);
+    width: 100px;
+    height: 5px;
+    position: relative;
+    top: -20px;
+    left: 30px;
+}
+
+
+#pet1 {
+    position: relative;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    background-color: #ff206e;
+    width: 345px;
+    height: 440px;
+    transition: 1.5s ease-in-out;
+}
+
+
+
+#pet2 {
+    position: relative;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    background-color: #fbff12;
+    width: 345px;
+    height: 440px;
+    transition: 1.5s ease-in-out;
+}
+
+#pet3 {
+    position: relative;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    background-color: #41ead4;
+    width: 345px;
+    height: 440px;
+    transition: 1.5s ease-in-out;
+}
+
+#selectorCont {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 345px;
+    margin: 20px;
+    position: relative;
+}
+
