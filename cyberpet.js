@@ -19,11 +19,15 @@ class Cyberpet {
         const decreaseAmountH = 2;
         const decreaseAmountT = 5;
         const decreaseAmountS = 1;
+        const decreaseAmountSl = 1;
+        const decreaseAmountTh = 1;
 
         // Decrease stats
         this.hunger -= decreaseAmountH;
         this.thirst -= decreaseAmountT;
         this.squish -= decreaseAmountS;
+        this.sleep -= decreaseAmountSl;
+        this.think -= decreaseAmountTh;
 
         // Ensure hunger doesn't go below 0
         // if (this.hunger < 0) {
@@ -41,7 +45,7 @@ class Cyberpet {
         document.getElementById("hunger").textContent = this.hunger
         document.getElementById("thirst").textContent = this.thirst
         document.getElementById("codeprogress").textContent = this.codingProgress
-        document.getElementById("squish").textContent = this.squish
+        document.getElementById("varStatValue").textContent = this.squish || this.sleep || this.thinking || "";
     }
 
     isAlive() {
@@ -63,7 +67,7 @@ class Cyberpet {
         document.getElementById("hunger").textContent = "You Died"
         document.getElementById("thirst").textContent = "You Died"
         document.getElementById("codeprogress").textContent = "You Died"
-        document.getElementById("squish").textContent = "You Died"
+        document.getElementById("varStatValue").textContent = "You Died"
     }
     eats() {
         this.hunger += 10
@@ -139,13 +143,62 @@ class CutesyCoder extends Cyberpet {
         this.isAlive()
     }
 }
+class SleepyCoder extends Cyberpet {
+    constructor(name, hunger, thirst, codingProgress, sleep) {
+        super (name, hunger, thirst, codingProgress)
+        this.sleep = sleep
+    }
+    coffee(){
+        console.log("Glug Glug")
+        this.sleep += 50
+        if (this.sleep > 100) {
+            this.sleep = 100 
+        }
+        this.updateStats()
 
-createNewPet = () => {
-    const nameInput = document.getElementById("nameInput").value;
-    document.getElementById("name").textContent = nameInput;
+        this.isAlive()
+    }
+}
+
+class ThinkyCoder extends Cyberpet {
+    constructor(name, hunger, thirst, codingProgress, thinking) {
+        super (name, hunger, thirst, codingProgress)
+        this.thinking = thinking
+    }
+    think(){
+        console.log("big brain time")
+        this.thinking += 50
+        if (this.thinking > 100) {
+            this.thinking = 100 
+        }
+        this.updateStats()
+
+        this.isAlive()
+    }
+}
+createNewCutePet = () => {
+    var nameInput = document.getElementById("nameInput1").value;
+    document.getElementById("nameC").textContent = nameInput;
     newPet = new CutesyCoder(nameInput, 100, 100, 0, 100);
     newPet.updateStats();
-    document.getElementById("name").textContent = nameInput
+    document.getElementById("nameC").textContent = nameInput
+    document.getElementById("varStat").textContent = "Squish"
+}
+createNewThinkyPet = () => {
+    var nameInput = document.getElementById("nameInput2").value;
+    document.getElementById("nameT").textContent = nameInput;
+    newPet = new ThinkyCoder(nameInput, 100, 100, 0, 100);
+    newPet.updateStats();
+    document.getElementById("nameT").textContent = nameInput
+    document.getElementById("varStat").textContent = "Thinking"
+}
+createNewSleepyPet = () => {
+    var nameInput = document.getElementById("nameInput3").value;
+    document.getElementById("nameS").textContent = nameInput;
+    newPet = new SleepyCoder(nameInput, 100, 100, 0, 100);
+    newPet.updateStats();
+    document.getElementById("nameS").textContent = nameInput
+    document.getElementById("varStat").textContent = "Sleep"
 }
 // const newPet = new CutesyCoder(nameInput,100,100,0,100)
 
