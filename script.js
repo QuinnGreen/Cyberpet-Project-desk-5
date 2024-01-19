@@ -180,8 +180,8 @@ const doThing = (id) => {
             codeBar.style.width = "0px"
             let varBar = document.getElementById("varProg")
             varBar.style.width = "0px"
-            let a = document.getElementById("infoCont").textContent
-            a = "itDied"
+            let a = document.getElementById("infoCont")
+            a.textContent = "itDied"
         }
         eats() {
             this.hunger += 10
@@ -245,6 +245,8 @@ const doThing = (id) => {
             this.thirst = 100
             this.codingProgress = 0
             this.squish = 100
+            let a = document.getElementById("infoCont")
+            a.textContent = "Projects Finished = "
             this.updateStats()
         }
     }
@@ -347,4 +349,7 @@ const doThing = (id) => {
     
 });
 
+const reset = () => {
+    newPet.reset()
+}
 
