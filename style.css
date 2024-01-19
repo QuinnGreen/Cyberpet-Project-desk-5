@@ -67,7 +67,7 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.158);
 }
 
-#infoCont {
+#infoCont1, #infoCont2, #infoCont3 {
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
@@ -107,7 +107,7 @@ body {
     padding: 1px;
 }
 
-#drinkProg {
+#drinkProg1, #drinkProg2, #drinkProg3 {
     background-color: rgb(120, 120, 120);
     width: 100px;
     height: 5px;
@@ -116,7 +116,7 @@ body {
     left: 30px;
 }
 
-#eatProg {
+#eatProg1, #eatProg2, #eatProg3 {
     background-color: rgb(120, 120, 120);
     width: 100px;
     height: 5px;
@@ -125,7 +125,7 @@ body {
     left: 30px;
 }
 
-#codeProg {
+#codeProg1, #codeProg2, #codeProg3 {
     background-color: rgb(120, 120, 120);
     width: 100px;
     height: 5px;
@@ -134,7 +134,7 @@ body {
     left: 30px;
 }
 
-#varProg {
+#squishProg {
     background-color: rgb(120, 120, 120);
     width: 100px;
     height: 5px;
@@ -142,6 +142,24 @@ body {
     top: -20px;
     left: 30px;
 }
+
+#sleepProg {
+    background-color: rgb(120, 120, 120);
+    width: 100px;
+    height: 5px;
+    position: relative;
+    top: -20px;
+    left: 30px;
+}
+#thinkProg {
+    background-color: rgb(120, 120, 120);
+    width: 100px;
+    height: 5px;
+    position: relative;
+    top: -20px;
+    left: 30px;
+}
+
 
 
 #pet1 {

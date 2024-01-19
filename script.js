@@ -5,6 +5,7 @@ const petSelector = document.getElementById(`selectorCont`);
 
 let currentSelection = "c";
 
+let chosenPet = 2
 
 petSelector.addEventListener("click", (e) => {
     
@@ -26,7 +27,7 @@ const doThing = (id) => {
         case currentSelection === "c" && selectedItem.id === "selL":
 
             console.log(`GO TO PET 1 FROM PET 2`);
-
+chosenPet = 1
             pet1.style.left = "830px";
             pet1.style.zIndex = "1";
 
@@ -40,7 +41,7 @@ const doThing = (id) => {
         break;
 
         case currentSelection === "c" && selectedItem.id === "selR":
-
+            chosenPet = 3
             pet2.style.zIndex = "-1";
             pet2.style.left = "830px";
 
@@ -53,8 +54,8 @@ const doThing = (id) => {
 
             break;
 
-            case currentSelection === "l" && selectedItem.id === "selR":
-
+        case currentSelection === "l" && selectedItem.id === "selR":
+            chosenPet = 2
             pet1.style.zIndex = "-1";
             pet1.style.left = "-830px";
 
@@ -68,8 +69,8 @@ const doThing = (id) => {
 
             break;
 
-            case currentSelection === "r" && selectedItem.id === "selL":
-
+        case currentSelection === "r" && selectedItem.id === "selL":
+            chosenPet = 2
             pet2.style.zIndex = "1";
             pet2.style.left = "0px";
 
@@ -116,7 +117,7 @@ const doThing = (id) => {
             this.thirst -= decreaseAmountT;
             this.squish -= decreaseAmountS;
             this.sleep -= decreaseAmountSl;
-            this.think -= decreaseAmountTh;
+            this.thinking -= decreaseAmountTh;
     
             // Ensure hunger doesn't go below 0
             // if (this.hunger < 0) {
@@ -131,14 +132,18 @@ const doThing = (id) => {
         
         updateStats(){
             
-            let hungerBar = document.getElementById("eatProg")
+            let hungerBar = document.getElementById(`eatProg${chosenPet}`)
             hungerBar.style.width = this.hunger+ "px"
-            let thirstBar = document.getElementById("drinkProg")
+            let thirstBar = document.getElementById(`drinkProg${chosenPet}`)
             thirstBar.style.width = this.thirst+ "px"
-            let codeBar = document.getElementById("codeProg")
+            let codeBar = document.getElementById(`codeProg${chosenPet}`)
             codeBar.style.width = this.codingProgress+ "px"
-            let varBar = document.getElementById("varProg")
-            varBar.style.width = this.squish+ "px"
+            let squishBar = document.getElementById(`squishProg`)
+            squishBar.style.width = this.squish+ "px"
+            let sleepBar = document.getElementById(`sleepProg`)
+            sleepBar.style.width = this.sleep+ "px"
+            let thinkBar = document.getElementById(`thinkProg`)
+            thinkBar.style.width = this.thinking+ "px"
 
             if (this.thirst > 100) {
                 this.thirst = 100 
@@ -178,8 +183,8 @@ const doThing = (id) => {
             thirstBar.style.width = "0px"
             let codeBar = document.getElementById("codeProg")
             codeBar.style.width = "0px"
-            let varBar = document.getElementById("varProg")
-            varBar.style.width = "0px"
+            let squishBar = document.getElementById("squishProg")
+            squishBar.style.width = "0px"
             let a = document.getElementById("infoCont")
             a.textContent = "itDied"
         }
@@ -232,7 +237,7 @@ const doThing = (id) => {
             this.isAlive()
             if (this.codingProgress == 100) {
                 console.log("testproject100");
-                let infoCont = document.getElementById("infoCont");
+                let infoCont = document.getElementById(`infoCont${chosenPet}`);
                 let currentProjectsFinished = parseInt(infoCont.textContent.replace("Projects Finished =", "").trim()) || 0;
                 let newProjectsFinished = currentProjectsFinished + 1;
                 infoCont.textContent = "Projects Finished = " + newProjectsFinished;
@@ -254,7 +259,7 @@ const doThing = (id) => {
     class CutesyCoder extends Cyberpet {
         constructor(name, hunger, thirst, codingProgress, squish) {
             super (name, hunger, thirst, codingProgress)
-            this.squish = squish
+            this.squish = squish;
         }
         cuddlestuffie(){
             console.log("So soft")
@@ -270,7 +275,7 @@ const doThing = (id) => {
     class SleepyCoder extends Cyberpet {
         constructor(name, hunger, thirst, codingProgress, sleep) {
             super (name, hunger, thirst, codingProgress)
-            this.sleep = sleep
+            this.sleep = sleep;
         }
         coffee(){
             console.log("Glug Glug")
@@ -287,7 +292,7 @@ const doThing = (id) => {
     class ThinkyCoder extends Cyberpet {
         constructor(name, hunger, thirst, codingProgress, thinking) {
             super (name, hunger, thirst, codingProgress)
-            this.thinking = thinking
+            this.thinking = thinking;
         }
         think(){
             console.log("big brain time")
@@ -325,28 +330,70 @@ const doThing = (id) => {
         // document.getElementById("varStat").textContent = "Sleep"
     }
 
-    let drink = document.getElementById("drink");
-    drink.addEventListener("click", function() {
+    let drink1 = document.getElementById("drink1")
+    drink1.addEventListener("click", function() {
         newPet.drinks();
         
 });
+let drink2 = document.getElementById("drink2")
+drink2.addEventListener("click", function() {
+    newPet.drinks();
+    
+});
+let drink3 = document.getElementById("drink3")
+drink3.addEventListener("click", function() {
+    newPet.drinks();
+    
+});
 
-    let eat = document.getElementById("eat");
-    eat.addEventListener("click", function() {
+    let eat1 = document.getElementById("eat1");
+    eat1.addEventListener("click", function() {
         newPet.eats();
         
 });
+let eat2 = document.getElementById("eat2");
+eat2.addEventListener("click", function() {
+    newPet.eats();
+    
+});
+let eat3 = document.getElementById("eat3");
+eat3.addEventListener("click", function() {
+    newPet.eats();
+    
+});
 
-    let code = document.getElementById("code");     
-    code.addEventListener("click", function() {
+    let code1 = document.getElementById("code1");     
+    code1.addEventListener("click", function() {
         newPet.codes();
         
 });
+let code2 = document.getElementById("code2");     
+code2.addEventListener("click", function() {
+    newPet.codes();
+    
+});
+let code3 = document.getElementById("code3");     
+code3.addEventListener("click", function() {
+    newPet.codes();
+    
+});
 
-    let varBar = document.getElementById("var");     
-    varBar.addEventListener("click", function() {
+    let squishBar = document.getElementById("squish");     
+    squishBar.addEventListener("click", function() {
          newPet.cuddlestuffie();
     
+});
+
+let sleepBar = document.getElementById("sleep");     
+sleepBar.addEventListener("click", function() {
+     newPet.coffee();
+
+});
+
+let thinkBar = document.getElementById("think");     
+thinkBar.addEventListener("click", function() {
+     newPet.think();
+
 });
 
 const reset = () => {
