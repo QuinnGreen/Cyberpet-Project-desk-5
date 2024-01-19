@@ -1,0 +1,4 @@
+1. init buttons need looking better
+2. death funcions like andrews, update pics on death
+3. needs to look more codery
+4. reset button (new inits cause issues)
